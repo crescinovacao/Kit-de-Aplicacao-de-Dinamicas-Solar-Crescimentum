@@ -54,7 +54,7 @@
 
   .dyn-cards {
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
     gap:18px;
     padding:32px 0 8px;
   }
@@ -148,7 +148,7 @@
     <div class="divider"></div>
     <div>
       <div class="kit-name">Kit de Aplicação de Dinâmicas</div>
-      <div class="kit-sub">Obra de Arte da Cultura &amp; Travessia da Ilha</div>
+      <div class="kit-sub">Bingo Humano, Galeria de Arte &amp; Travessia da Ilha</div>
     </div>
   </div>
 </div>
@@ -159,15 +159,25 @@
   <div class="screen active" id="screen-home">
     <div class="home-hero">
       <h1>Kit de Aplicação de Dinâmicas</h1>
-      <p>Material de referência para preparar e conduzir as duas dinâmicas abaixo: o que cada uma trabalha, como montar a sala, quais materiais separar e o passo a passo de aplicação e debriefing.</p>
+      <p>Material de referência para preparar e conduzir as dinâmicas abaixo: o que cada uma trabalha, como montar a sala, quais materiais separar e o passo a passo de aplicação e debriefing.</p>
     </div>
     <div class="dyn-cards">
-      <div class="dyn-card" onclick="showScreen('obra')">
-        <h2>Obra de Arte da Cultura</h2>
-        <p>Grupos de 5-6 pessoas constroem obras de arte, independentes ou conectadas entre si, cada uma explorando um recorte da cultura da organização.</p>
+      <div class="dyn-card" onclick="showScreen('bingo')">
+        <h2>Bingo Humano</h2>
+        <p>Atividade de integração: cada pessoa preenche uma cartela com nomes de colegas que se encaixam em características descritas.</p>
         <div class="tags">
-          <span class="tag">65 a 80 min</span>
-          <span class="tag">Grupos de 5-6</span>
+          <span class="tag">25 min</span>
+          <span class="tag">Mín. 12 pessoas</span>
+          <span class="tag">Individual</span>
+        </div>
+        <div class="open-link">Abrir dinâmica →</div>
+      </div>
+      <div class="dyn-card" onclick="showScreen('obra')">
+        <h2>Galeria de Arte</h2>
+        <p>Grupos de 4-6 pessoas constroem obras de arte, independentes ou conectadas entre si, que representam a Solar.</p>
+        <div class="tags">
+          <span class="tag">45 a 55 min</span>
+          <span class="tag">Grupos de 4-6</span>
           <span class="tag">Colaborativo</span>
         </div>
         <div class="open-link">Abrir dinâmica →</div>
@@ -190,121 +200,56 @@
     <button class="back-btn" onclick="showScreen('home')">← Voltar ao kit</button>
 
     <div class="dyn-header">
-      <h1>Obra de Arte da Cultura</h1>
+      <h1>Galeria de Arte</h1>
       <div class="subtitle">Descrição para Consultores(as)</div>
     </div>
 
     <div class="section">
       <h2>Resumo</h2>
-      <p>Na Obra de Arte da Cultura, as pessoas participantes se dividem em grupos de 5 a 6 pessoas para construir, cada grupo, uma obra de arte que representa a cultura da organização ou do time. As obras podem ser independentes entre si ou conectadas, formando ao final uma composição coletiva maior. Para orientar a criação, cada grupo explora um recorte da cultura: a origem, o propósito, os comportamentos do dia a dia, os símbolos e histórias compartilhadas, ou os limites e valores não negociáveis. Ao final, os grupos apresentam suas obras e refletem juntos sobre como as diferentes partes da cultura se conectam (ou não) para formar um todo.</p>
+      <p>Na Galeria de Artes, as pessoas participantes se dividem em grupos de 4 a 6 pessoas para construir, cada grupo, uma obra de arte que representa a Solar. As obras podem ser independentes entre si ou conectadas, formando ao final uma composição coletiva maior. Ao final, os grupos apresentam suas obras e refletem juntos sobre como as diferentes percepções da Solar contam parte da cultura.</p>
     </div>
 
     <div class="section">
       <h2>Visão geral</h2>
       <div class="info-grid">
         <div class="info-item">
-          <div class="label">Formatos de aplicação</div>
-          <div class="value">Colaborativo</div>
-        </div>
-        <div class="info-item">
-          <div class="label">Público-alvo</div>
-          <div class="value">Todos os públicos (imersões de cultura, onboarding, formações de RH)</div>
-        </div>
-        <div class="info-item full">
-          <div class="label">Habilidades desenvolvidas</div>
-          <div class="value">Cultura organizacional, pensamento sistêmico, identidade e pertencimento coletivo, trabalho em equipe, comunicação não verbal, criatividade, alinhamento de propósito</div>
-        </div>
-        <div class="info-item">
           <div class="label">Tempo total</div>
-          <div class="value">65 a 80 minutos (10 prep. + 25-30 execução + 10 montagem + 20-30 debriefing)</div>
+          <div class="value">45 a 55 minutos (5 prep. + 20 execução + 20-30 debriefing)</div>
         </div>
         <div class="info-item">
           <div class="label">Participantes</div>
-          <div class="value">Os participantes se dividem em grupos para construir obras de arte independentes ou conectadas. Cada grupo contém de 5-6 participantes</div>
-        </div>
-        <div class="info-item">
-          <div class="label">Consultores(as) de apoio</div>
-          <div class="value">Não há necessidade para 1 obra. 1 apoio adicional por obra extra em paralelo</div>
-        </div>
-        <div class="info-item">
-          <div class="label">Turmas maiores</div>
-          <div class="value">Escala com o tamanho da turma: basta formar mais grupos de 5-6 participantes</div>
+          <div class="value">Mín. 4 por equipe (grupos de 4 a 6 pessoas). Sem máximo. Mín. 1 equipe, sem máximo de equipes</div>
         </div>
       </div>
     </div>
 
     <div class="section">
       <h2>Disposição da sala</h2>
-      <p>Uma ilha de mesas por grupo (grupos de 5 a 6 pessoas), com cadeiras suficientes para o grupo, distribuídas ao redor da sala: formato que favorece a interação dentro do grupo e evita contato visual direto entre grupos vizinhos, já que a regra é não haver comunicação entre eles durante a construção.</p>
-      <p>Se algum grupo optar por conectar sua obra às demais ao final, reservar um espaço central livre (chão ou uma mesa grande) ou uma área de parede, demarcado com fita crepe, para essa montagem coletiva.</p>
-      <p>O número de ilhas escala com o tamanho da turma: basta formar mais mesas conforme o número de grupos de 5-6 participantes.</p>
-      <table>
-        <thead><tr><th>Formato de sala</th><th>Configuração recomendada</th></tr></thead>
-        <tbody>
-          <tr><td>Sala de treinamento</td><td>Uma ilha de 5-6 pessoas por grupo + área central de montagem demarcada (caso algum grupo conecte sua obra)</td></tr>
-          <tr><td>Auditório / plenária</td><td>Um ponto de encontro com mesas móveis ou pranchetas por grupo, com área de montagem próxima ao palco</td></tr>
-          <tr><td>Espaço aberto / área externa</td><td>Um tapete ou lona por grupo, delimitando o espaço de cada um + parede ou cavalete para uma eventual montagem coletiva</td></tr>
-        </tbody>
-      </table>
+      <p>Mesas suficientes para acomodar os grupos de 4 a 6 pessoas, distribuídas pela sala, com espaço de circulação para o(a) consultor(a) passar entre os grupos durante a construção.</p>
     </div>
 
     <div class="section">
       <h2>Materiais necessários por equipe</h2>
-      <p style="color:var(--text-light); font-size:13px; margin-top:-6px;">Os participantes se dividem em grupos para construir obras de arte independentes ou conectadas. Cada grupo contém de 5-6 participantes. Multiplicar as quantidades pelo número de grupos da turma.</p>
       <div id="obra-checklist"></div>
     </div>
 
     <div class="section">
       <h2>Explicação do funcionamento da dinâmica (regras)</h2>
       <ol class="plain">
-        <li>Divida as pessoas participantes em grupos de 5 a 6 pessoas.</li>
-        <li>Cada grupo recebe (ou escolhe) um recorte da cultura para explorar: origem, propósito, comportamentos do dia a dia, símbolos e histórias, ou limites e valores. Se houver mais grupos do que recortes, repita os recortes entre os grupos.</li>
-        <li>Cada grupo constrói livremente sua obra de arte, de forma independente ou, se preferir, já pensando em como ela pode se conectar às obras dos demais grupos.</li>
-        <li>Não é permitido comunicar verbalmente entre os grupos durante a construção; as discussões devem ocorrer dentro do próprio grupo.</li>
-        <li>Ao final da construção, os grupos que desejarem podem aproximar ou unir suas obras, formando uma composição coletiva.</li>
-        <li>Cada grupo apresentará sua obra e explicará as escolhas feitas, de acordo com o recorte de cultura que explorou.</li>
-        <li>Ao final das apresentações, a turma dá um nome ao conjunto de obras (a "galeria"), em conjunto.</li>
+        <li>Divida as pessoas participantes em grupos de 4 a 6 pessoas.</li>
+        <li>Cada grupo refletirá sobre a experiência de trabalhar na Solar, identificando aspectos que mais marcam sua vivência e representam a empresa.</li>
+        <li>Durante a construção, os grupos devem criar sua obra de arte de forma criativa, utilizando os materiais fornecidos.</li>
+        <li>Após a construção, cada grupo apresentará sua obra e explicará as escolhas feitas.</li>
       </ol>
-    </div>
-
-    <div class="section">
-      <h2>Recortes para orientar cada grupo</h2>
-      <p style="color:var(--text-light); font-size:13px; margin-top:-6px;">Distribua um recorte por grupo. Se houver mais de 5 grupos, repita os recortes entre eles.</p>
-      <div class="group-card">
-        <h3>Origem</h3>
-        <p>A origem e a história da cultura: o terreno em que ela foi plantada.</p>
-        <div class="q">De onde vem a nossa cultura? Qual é a origem da nossa organização ou do nosso time? O que ficou no passado e ainda influencia o presente?</div>
-      </div>
-      <div class="group-card">
-        <h3>Propósito</h3>
-        <p>Aquilo que primeiro chama a atenção de quem olha para a cultura: o foco e o propósito compartilhado.</p>
-        <div class="q">Qual é o propósito que está no centro da nossa cultura? O que queremos que as pessoas vejam primeiro quando olham para nós?</div>
-      </div>
-      <div class="group-card">
-        <h3>Comportamentos</h3>
-        <p>Os comportamentos e as práticas do dia a dia, os rituais que fazem a cultura ser sentida, não só vista.</p>
-        <div class="q">Quais comportamentos e rituais dão textura ao nosso dia a dia? O que é áspero e o que é suave na nossa cultura?</div>
-      </div>
-      <div class="group-card">
-        <h3>Símbolos e histórias</h3>
-        <p>Os pequenos elementos e detalhes que marcam a cultura: as histórias, os símbolos e as pessoas.</p>
-        <div class="q">Que símbolos, histórias ou pessoas marcam quem somos? O que, escondido nos detalhes, revela a nossa identidade?</div>
-      </div>
-      <div class="group-card">
-        <h3>Limites e valores</h3>
-        <p>Aquilo que delimita e protege a cultura: os não negociáveis.</p>
-        <div class="q">O que delimita a nossa cultura, os limites dos quais não abrimos mão? O que protege a nossa essência mesmo quando tudo muda ao redor?</div>
-      </div>
-      <div class="callout"><strong>Observação:</strong> o(a) consultor(a) deve interagir com os grupos durante a fase de apresentação das obras e, caso algum grupo deseje conectar sua obra às demais, apoiar essa montagem. É esperado que, ao final, com as obras apresentadas e o nome da galeria escolhido em conjunto, a turma reconheça o conjunto de obras como uma representação legítima, embora plural e em construção, da cultura compartilhada.</div>
+      <div class="callout"><strong>Observação:</strong> o(a) consultor(a) deve interagir com as pessoas participantes durante a fase de apresentação das obras e solicitar que um(a) voluntário(a) conecte as obras de arte como parte de uma mesma exposição.</div>
     </div>
 
     <div class="section">
       <h2>Preparação / montagem</h2>
       <ol class="plain">
         <li>Organize as mesas e os materiais para cada grupo.</li>
-        <li>Defina os recortes de cultura disponíveis (origem, propósito, comportamentos, símbolos e histórias, limites e valores) e distribua entre os grupos, repetindo recortes se houver mais grupos do que recortes.</li>
-        <li>Explique que cada grupo será responsável por construir sua própria obra, podendo optar por conectá-la às demais ao final.</li>
-        <li>Distribua os materiais e, se houver espaço reservado para uma eventual montagem coletiva, demarque-o com fita crepe.</li>
+        <li>Explique que cada grupo será responsável por uma obra de arte, que podem ser independentes ou conectadas com as demais equipes.</li>
+        <li>Distribua os materiais e dê o tempo para a construção da obra de arte.</li>
       </ol>
     </div>
 
@@ -312,23 +257,19 @@
       <h2>Aplicação</h2>
       <ol class="plain">
         <li>Explique a dinâmica e distribua os materiais para cada grupo.</li>
-        <li>Diga às pessoas participantes que devem refletir sobre o recorte de cultura recebido e criar sua obra livremente.</li>
-        <li>Durante a construção, circule entre os grupos, incentivando a criatividade e a reflexão sobre o recorte de cultura de cada um.</li>
-        <li>Após o tempo de construção, se algum grupo optar por conectar sua obra às demais, conduza essa montagem coletiva.</li>
-        <li>Cada grupo apresenta sua obra e compartilha suas reflexões com a turma.</li>
-        <li>Encerre pedindo que a turma escolha, em conjunto, um nome para o conjunto de obras (a galeria).</li>
+        <li>Diga às pessoas participantes que devem refletir sobre qual característica da Solar querem retratar.</li>
+        <li>Durante a construção, circulando entre os grupos, incentive a criatividade e a reflexão sobre o porquê de escolherem representar determinada coisa.</li>
+        <li>Após o tempo de construção, cada grupo deve apresentar sua obra e compartilhar suas reflexões com o grupo.</li>
       </ol>
     </div>
 
     <div class="section">
       <h2>Debriefing</h2>
       <ul class="plain">
-        <li><strong>Trabalho em equipe:</strong> como a colaboração dentro de cada grupo contribuiu para a criação da obra? Como foi a interação entre os grupos durante as apresentações?</li>
-        <li><strong>Importância de cada recorte na cultura:</strong> como cada obra reflete aspectos essenciais da cultura, como origem, propósito, comportamentos, símbolos e limites? Como as diferentes obras se conectam (ou não) para formar a cultura como um todo?</li>
-        <li><strong>Liderança e cultura organizacional:</strong> como a liderança se manifesta nas obras? Quais ações e comportamentos refletem os valores da organização?</li>
-        <li><strong>Integração das obras:</strong> como as obras, juntas ou separadas, formam uma visão da cultura? O que o nome escolhido para a galeria revela sobre como a turma enxerga a cultura hoje? Quais ajustes poderiam ser feitos para uma cultura mais integrada?</li>
+        <li>Todas as equipes apresentam.</li>
+        <li>O(a) consultor(a) convida alguém para fazer a conexão entre as obras, como se fosse um guia da galeria de artes.</li>
+        <li>Abre uma pergunta para o grupo todo: o que mais te chamou atenção nessa dinâmica?</li>
       </ul>
-      <div class="callout"><strong>Atenção:</strong> adaptável para qualquer modelo de cultura já utilizado internamente (ex.: valores específicos da organização), basta ajustar os recortes de cada grupo.</div>
     </div>
   </div>
 
@@ -466,6 +407,83 @@
     </div>
   </div>
 
+  <!-- ================= BINGO HUMANO ================= -->
+  <div class="screen" id="screen-bingo">
+    <button class="back-btn" onclick="showScreen('home')">← Voltar ao kit</button>
+
+    <div class="dyn-header">
+      <h1>Bingo Humano</h1>
+      <div class="subtitle">Descrição para Consultores(as)</div>
+    </div>
+
+    <div class="section">
+      <h2>Resumo</h2>
+      <p>A dinâmica "Bingo Humano" promove a integração do grupo e pode ser utilizada como atividade inicial de conexão. O objetivo é preencher uma cartela com características com os nomes das pessoas presentes na sala, incentivando o(a)s participantes a interagirem entre si para completar a tarefa.</p>
+    </div>
+
+    <div class="section">
+      <h2>Visão geral</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="label">Tempo total</div>
+          <div class="value">25 minutos (5 prep. + 10 execução + 10 fechamento, conferência e premiação)</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Participantes</div>
+          <div class="value">Mín. 12 (cartela de 8 espaços). Sem máximo. Atividade individual, sem divisão em equipes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Disposição da sala</h2>
+      <p>Espaço aberto, sem mesas fixas, que permita que as pessoas circulem livremente pela sala para conversar com o maior número possível de colegas.</p>
+    </div>
+
+    <div class="section">
+      <h2>Materiais necessários por equipe</h2>
+      <div id="bingo-checklist"></div>
+    </div>
+
+    <div class="section">
+      <h2>Explicação do funcionamento da dinâmica (regras)</h2>
+      <ul class="plain">
+        <li><strong>Questionamento inicial:</strong> pergunte ao grupo se já jogaram bingo e, em seguida, explique que jogarão uma versão diferente chamada Bingo Humano. Caso alguém não conheça o Bingo tradicional, explicar como funciona.</li>
+        <li><strong>Explicação das regras:</strong> as pessoas participantes devem encontrar quem se encaixa nas características descritas nos quadrinhos da cartela. Exemplo: "Quem é canhoto(a)?" e a pessoa deve colocar o nome de quem se encaixa na característica no quadrinho correspondente.</li>
+        <li>Não é permitido colocar o próprio nome, nem repetir a mesma pessoa em duas casas diferentes.</li>
+        <li>A tarefa estará concluída quando o formulário de uma pessoa estiver totalmente preenchido. Essa pessoa deve escrever seu nome e gritar "Bingo!".</li>
+      </ul>
+      <div class="callout"><strong>Observação:</strong> mesmo se alguém gritar "Bingo!", as outras pessoas participantes devem continuar até completar o formulário corretamente, pois quem gritar primeiro pode ter preenchimentos errados ou repetidos.</div>
+    </div>
+
+    <div class="section">
+      <h2>Preparação / montagem</h2>
+      <ul class="plain">
+        <li>Prepare o ambiente e distribua o material necessário (cartelas de bingo e canetas) às pessoas participantes.</li>
+        <li>O ambiente deve permitir que as pessoas circulem pelo espaço para interagirem umas com as outras.</li>
+        <li>Certifique-se de que todos compreendem as regras do Bingo Humano e como interagir com os outros para preencher as cartelas.</li>
+        <li>Explique que cada pessoa precisará interagir para preencher as características da cartela.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Aplicação</h2>
+      <ul class="plain">
+        <li>Após a explicação, inicie a dinâmica distribuindo os formulários e as canetas.</li>
+        <li>Diga às pessoas participantes para que comecem a interagir umas com as outras e preencham as cartelas de bingo.</li>
+        <li>Quando alguém completar sua cartela, deve gritar "Bingo!" e esperar pela verificação.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Fechamento</h2>
+      <ul class="plain">
+        <li>Após conferência da cartela e validado o Bingo, pegue alguns exemplos e pergunte quem são as pessoas cujos nomes estão na cartela vencedora. Exemplo: "A Camila sabe fazer pratos diferentes. Que pratos você faz, Camila? Alguém achou outro 'chef de cozinha' aqui?"</li>
+        <li>Pergunte às pessoas como estão se sentindo após terem feito essa atividade. As respostas permitem verificar nível de energia e entrosamento.</li>
+      </ul>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -498,6 +516,12 @@ var travessiaMateriais = [
   ['Fitas de tecido (ex.: cetim, TNT) para imobilizar as mãos das pessoas participantes do subgrupo "imobilizadas"', '10 fitas de 60 cm']
 ];
 
+var bingoMateriais = [
+  ['Formulário do bingo com espaços adaptados para o público', 'uma cópia para cada participante'],
+  ['Caneta', 'uma para cada participante'],
+  ['Premiação para o bingo', '1 (para quem completar a cartela primeiro)']
+];
+
 function renderChecklist(containerId, items) {
   var container = document.getElementById(containerId);
   items.forEach(function(item, i) {
@@ -516,6 +540,7 @@ function renderChecklist(containerId, items) {
 
 renderChecklist('obra-checklist', obraMateriais);
 renderChecklist('travessia-checklist', travessiaMateriais);
+renderChecklist('bingo-checklist', bingoMateriais);
 </script>
 
 </body>
