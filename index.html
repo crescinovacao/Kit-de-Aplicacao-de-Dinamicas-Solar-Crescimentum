@@ -27,7 +27,7 @@
 
   h1,h2,h3,.title { font-family:'Raleway',sans-serif; font-weight:700; color:var(--accent-dark); }
 
-  .wrap { max-width:820px; margin:0 auto; padding:0 16px 60px; }
+  .wrap { max-width:980px; margin:0 auto; padding:0 16px 60px; }
 
   /* Header */
   .app-header {
@@ -132,6 +132,23 @@
   .callout { background:var(--accent-light); border-radius:10px; padding:14px 16px; font-size:13.5px; line-height:1.55; }
   .callout strong { color:var(--accent-dark); }
 
+  /* Quick summary panel */
+  .dyn-layout { display:flex; gap:28px; align-items:flex-start; }
+  .dyn-summary {
+    position:sticky; top:16px; width:190px; flex-shrink:0;
+    background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px;
+  }
+  .ds-block { padding:12px 0; border-top:1px solid var(--bg); }
+  .ds-block:first-child { padding-top:0; border-top:none; }
+  .ds-title { font-family:'Raleway',sans-serif; font-weight:800; font-size:11.5px; color:var(--accent-dark); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px; }
+  .ds-text { font-size:12.5px; line-height:1.5; color:var(--text-light); }
+  .dyn-content { flex:1; min-width:0; }
+
+  @media (max-width:780px) {
+    .dyn-layout { flex-direction:column; gap:14px; }
+    .dyn-summary { position:static; width:100%; display:grid; grid-template-columns:1fr 1fr; gap:14px 20px; }
+    .ds-block { border-top:none; padding:0; }
+  }
   @media (max-width:640px) {
     .dyn-cards { grid-template-columns:1fr; }
     .info-grid { grid-template-columns:1fr; }
@@ -166,8 +183,8 @@
         <h2>Bingo Humano</h2>
         <p>Atividade de integração: cada pessoa preenche uma cartela com nomes de colegas que se encaixam em características descritas.</p>
         <div class="tags">
-          <span class="tag">25 min</span>
-          <span class="tag">Mín. 12 pessoas</span>
+          <span class="tag">25 minutos</span>
+          <span class="tag">Mínimo de 12 pessoas</span>
           <span class="tag">Individual</span>
         </div>
         <div class="open-link">Abrir dinâmica →</div>
@@ -176,7 +193,7 @@
         <h2>Galeria de Arte</h2>
         <p>Grupos de 4-6 pessoas constroem obras de arte, independentes ou conectadas entre si, que representam a Solar.</p>
         <div class="tags">
-          <span class="tag">45 a 55 min</span>
+          <span class="tag">45 a 55 minutos</span>
           <span class="tag">Grupos de 4-6</span>
           <span class="tag">Colaborativo</span>
         </div>
@@ -186,7 +203,7 @@
         <h2>Travessia da Ilha</h2>
         <p>Três grupos, com limitações diferentes (vendadas, imobilizadas, sem fala), precisam atravessar três ilhas usando tapetinhos como pontes.</p>
         <div class="tags">
-          <span class="tag">50 min</span>
+          <span class="tag">50 minutos</span>
           <span class="tag">9 a 30 pessoas</span>
           <span class="tag">Tensão criativa</span>
         </div>
@@ -199,6 +216,27 @@
   <div class="screen" id="screen-obra">
     <button class="back-btn" onclick="showScreen('home')">← Voltar ao kit</button>
 
+    <div class="dyn-layout">
+    <aside class="dyn-summary">
+      <div class="ds-block">
+        <div class="ds-title">Resumo</div>
+        <p class="ds-text">Grupos de 4 a 6 pessoas constroem obras de arte, independentes ou conectadas entre si, que representam a Solar.</p>
+      </div>
+      <div class="ds-block">
+        <div class="ds-title">Disposição da Sala</div>
+        <p class="ds-text">Mesas suficientes para os grupos de 4 a 6 pessoas, com espaço de circulação para o(a) consultor(a).</p>
+      </div>
+      <div class="ds-block">
+        <div class="ds-title">Materiais necessários</div>
+        <p class="ds-text">Cartolina, papel crepom, bexigas, palitos de sorvete, barbante, canetinhas, giz de cera, tesoura e cola, entre outros.</p>
+      </div>
+      <div class="ds-block">
+        <div class="ds-title">Explicação</div>
+        <p class="ds-text">Cada grupo reflete sobre sua vivência na Solar e constrói uma obra que representa essa experiência, apresentando as escolhas feitas ao final.</p>
+      </div>
+    </aside>
+    <div class="dyn-content">
+
     <div class="dyn-header">
       <h1>Galeria de Arte</h1>
       <div class="subtitle">Descrição para Consultores(as)</div>
@@ -210,17 +248,23 @@
     </div>
 
     <div class="section">
-      <h2>Visão geral</h2>
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="label">Tempo total</div>
-          <div class="value">45 a 55 minutos (5 prep. + 20 execução + 20-30 debriefing)</div>
-        </div>
-        <div class="info-item">
-          <div class="label">Participantes</div>
-          <div class="value">Mín. 4 por equipe (grupos de 4 a 6 pessoas). Sem máximo. Mín. 1 equipe, sem máximo de equipes</div>
-        </div>
-      </div>
+      <h2>Tempo Estimado</h2>
+      <ul class="plain">
+        <li>Preparação da dinâmica: 5 minutos</li>
+        <li>Execução da dinâmica: 20 minutos</li>
+        <li>Debriefing: 20 a 30 minutos (cada grupo apresenta)</li>
+      </ul>
+      <p><strong>Tempo Total:</strong> 45 a 55 minutos</p>
+    </div>
+
+    <div class="section">
+      <h2>Número de participantes</h2>
+      <ul class="plain">
+        <li>Mínimo de participantes: 4 participantes por equipe</li>
+        <li>Máximo de participantes: não há</li>
+        <li>Mínimo de equipes: 1 equipe</li>
+        <li>Máximo de equipes: não há</li>
+      </ul>
     </div>
 
     <div class="section">
@@ -271,11 +315,35 @@
         <li>Abre uma pergunta para o grupo todo: o que mais te chamou atenção nessa dinâmica?</li>
       </ul>
     </div>
+
+    </div>
+    </div>
   </div>
 
   <!-- ================= TRAVESSIA DA ILHA ================= -->
   <div class="screen" id="screen-travessia">
     <button class="back-btn" onclick="showScreen('home')">← Voltar ao kit</button>
+
+    <div class="dyn-layout">
+    <aside class="dyn-summary">
+      <div class="ds-block">
+        <div class="ds-title">Resumo</div>
+        <p class="ds-text">Três grupos, com limitações diferentes (vendadas, imobilizadas, sem fala), precisam atravessar três ilhas usando tapetinhos como pontes.</p>
+      </div>
+      <div class="ds-block">
+        <div class="ds-title">Disposição da Sala</div>
+        <p class="ds-text">Três ilhas demarcadas no chão, com distância desafiadora entre elas, mais dois espaços externos para os grupos retirados.</p>
+      </div>
+      <div class="ds-block">
+        <div class="ds-title">Materiais necessários</div>
+        <p class="ds-text">Tapetes, fita adesiva para demarcar as ilhas, vendas para os olhos e fitas de tecido para imobilizar as mãos.</p>
+      </div>
+      <div class="ds-block">
+        <div class="ds-title">Explicação</div>
+        <p class="ds-text">Cada grupo tem uma limitação diferente e precisa colaborar para atravessar as três ilhas, respeitando as regras de interação entre eles.</p>
+      </div>
+    </aside>
+    <div class="dyn-content">
 
     <div class="dyn-header">
       <h1>Travessia da Ilha</h1>
@@ -288,17 +356,21 @@
     </div>
 
     <div class="section">
-      <h2>Visão geral</h2>
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="label">Tempo total</div>
-          <div class="value">50 minutos (15 prep. + 15 execução + 20 debriefing)</div>
-        </div>
-        <div class="info-item">
-          <div class="label">Participantes</div>
-          <div class="value">Mínimo de 9 (3 por grupo). Máximo de 30 (10 por grupo)</div>
-        </div>
-      </div>
+      <h2>Tempo Estimado</h2>
+      <ul class="plain">
+        <li>Preparação da dinâmica: 15 minutos</li>
+        <li>Execução da dinâmica: 15 minutos</li>
+        <li>Debriefing: 20 minutos</li>
+      </ul>
+      <p><strong>Tempo Total:</strong> 50 minutos</p>
+    </div>
+
+    <div class="section">
+      <h2>Número de participantes</h2>
+      <ul class="plain">
+        <li>Mínimo de participantes: 9 (3 por grupo)</li>
+        <li>Máximo de participantes: 30 (10 por grupo)</li>
+      </ul>
     </div>
 
     <div class="section">
@@ -383,11 +455,35 @@
         <li><strong>Controle e microgerenciamento:</strong> como foi ter que dar instruções e confiar que o outro grupo faria corretamente?</li>
       </ul>
     </div>
+
+    </div>
+    </div>
   </div>
 
   <!-- ================= BINGO HUMANO ================= -->
   <div class="screen" id="screen-bingo">
     <button class="back-btn" onclick="showScreen('home')">← Voltar ao kit</button>
+
+    <div class="dyn-layout">
+    <aside class="dyn-summary">
+      <div class="ds-block">
+        <div class="ds-title">Resumo</div>
+        <p class="ds-text">Atividade de integração em que cada pessoa preenche uma cartela com nomes de colegas que se encaixam em características descritas.</p>
+      </div>
+      <div class="ds-block">
+        <div class="ds-title">Disposição da Sala</div>
+        <p class="ds-text">Espaço aberto, sem mesas fixas, que permita que as pessoas circulem livremente pela sala.</p>
+      </div>
+      <div class="ds-block">
+        <div class="ds-title">Materiais necessários</div>
+        <p class="ds-text">Formulário do bingo e caneta para cada participante, e premiação opcional para quem completar a cartela primeiro.</p>
+      </div>
+      <div class="ds-block">
+        <div class="ds-title">Explicação</div>
+        <p class="ds-text">As pessoas devem encontrar quem se encaixa em cada característica da cartela, sem repetir nomes, até preenchê-la por completo e gritar "Bingo!".</p>
+      </div>
+    </aside>
+    <div class="dyn-content">
 
     <div class="dyn-header">
       <h1>Bingo Humano</h1>
@@ -400,17 +496,22 @@
     </div>
 
     <div class="section">
-      <h2>Visão geral</h2>
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="label">Tempo total</div>
-          <div class="value">25 minutos (5 prep. + 10 execução + 10 fechamento, conferência e premiação)</div>
-        </div>
-        <div class="info-item">
-          <div class="label">Participantes</div>
-          <div class="value">Mín. 12 (cartela de 8 espaços). Sem máximo. Atividade individual, sem divisão em equipes</div>
-        </div>
-      </div>
+      <h2>Tempo Estimado</h2>
+      <ul class="plain">
+        <li>Preparação da dinâmica: 5 minutos</li>
+        <li>Execução da dinâmica: 10 minutos</li>
+        <li>Fechamento: 10 minutos para conferência e premiação</li>
+      </ul>
+      <p><strong>Tempo Total:</strong> 25 minutos</p>
+    </div>
+
+    <div class="section">
+      <h2>Número de participantes</h2>
+      <ul class="plain">
+        <li>Mínimo de participantes: 12 participantes (cartela de 8 espaços)</li>
+        <li>Máximo de participantes: não há</li>
+        <li>Mínimo de equipes: não aplicável. É uma atividade executada individualmente</li>
+      </ul>
     </div>
 
     <div class="section">
@@ -459,6 +560,9 @@
         <li>Após conferência da cartela e validado o Bingo, pegue alguns exemplos e pergunte quem são as pessoas cujos nomes estão na cartela vencedora. Exemplo: "A Camila sabe fazer pratos diferentes. Que pratos você faz, Camila? Alguém achou outro 'chef de cozinha' aqui?"</li>
         <li>Pergunte às pessoas como estão se sentindo após terem feito essa atividade. As respostas permitem verificar nível de energia e entrosamento.</li>
       </ul>
+    </div>
+
+    </div>
     </div>
   </div>
 
