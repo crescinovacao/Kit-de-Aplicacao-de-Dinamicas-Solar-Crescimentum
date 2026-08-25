@@ -132,22 +132,45 @@
   .callout { background:var(--accent-light); border-radius:10px; padding:14px 16px; font-size:13.5px; line-height:1.55; }
   .callout strong { color:var(--accent-dark); }
 
-  /* Quick summary panel */
+  /* Quick nav panel */
   .dyn-layout { display:flex; gap:28px; align-items:flex-start; }
   .dyn-summary {
     position:sticky; top:16px; width:190px; flex-shrink:0;
-    background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px;
+    background:#fff; border:1px solid var(--border); border-radius:12px; padding:10px;
+    display:flex; flex-direction:column; gap:2px;
   }
-  .ds-block { padding:12px 0; border-top:1px solid var(--bg); }
-  .ds-block:first-child { padding-top:0; border-top:none; }
-  .ds-title { font-family:'Raleway',sans-serif; font-weight:800; font-size:11.5px; color:var(--accent-dark); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px; }
-  .ds-text { font-size:12.5px; line-height:1.5; color:var(--text-light); }
+  .ds-link {
+    display:block; padding:10px 12px; font-family:'Raleway',sans-serif; font-weight:700; font-size:13px;
+    color:var(--accent-dark); text-decoration:none; border-radius:8px; cursor:pointer;
+    transition:background .2s ease, color .2s ease;
+  }
+  .ds-link:hover { background:var(--bg); color:var(--accent); }
   .dyn-content { flex:1; min-width:0; }
+
+  .pdf-btn-wrap { margin-top:36px; padding-top:24px; border-top:1px solid var(--border); text-align:center; }
+  .btn-pdf {
+    font-family:'Raleway',sans-serif; font-weight:800; font-size:14px; color:#fff;
+    background:var(--accent); border:none; border-radius:30px; padding:13px 32px;
+    cursor:pointer; transition:background .2s ease, transform .2s ease;
+  }
+  .btn-pdf:hover { background:var(--accent-dark); transform:translateY(-1px); }
+
+  @media print {
+    .app-header, .back-btn, .dyn-summary, .pdf-btn-wrap, .home-hero, .dyn-cards { display:none !important; }
+    body { background:#fff; }
+    .wrap { max-width:100%; padding:0; }
+    .dyn-layout { display:block; }
+    .dyn-header, thead th, .tag, .group-card, .callout {
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+    .section { break-inside:avoid; }
+    table, .group-card { break-inside:avoid; }
+  }
 
   @media (max-width:780px) {
     .dyn-layout { flex-direction:column; gap:14px; }
-    .dyn-summary { position:static; width:100%; display:grid; grid-template-columns:1fr 1fr; gap:14px 20px; }
-    .ds-block { border-top:none; padding:0; }
+    .dyn-summary { position:static; width:100%; flex-direction:row; flex-wrap:wrap; gap:6px; }
+    .ds-link { border:1px solid var(--border); font-size:12px; padding:7px 12px; }
   }
   @media (max-width:640px) {
     .dyn-cards { grid-template-columns:1fr; }
@@ -218,22 +241,15 @@
 
     <div class="dyn-layout">
     <aside class="dyn-summary">
-      <div class="ds-block">
-        <div class="ds-title">Resumo</div>
-        <p class="ds-text">Grupos de 4 a 6 pessoas constroem obras de arte, independentes ou conectadas entre si, que representam a Solar.</p>
-      </div>
-      <div class="ds-block">
-        <div class="ds-title">Disposição da Sala</div>
-        <p class="ds-text">Mesas suficientes para os grupos de 4 a 6 pessoas, com espaço de circulação para o(a) consultor(a).</p>
-      </div>
-      <div class="ds-block">
-        <div class="ds-title">Materiais necessários</div>
-        <p class="ds-text">Cartolina, papel crepom, bexigas, palitos de sorvete, barbante, canetinhas, giz de cera, tesoura e cola, entre outros.</p>
-      </div>
-      <div class="ds-block">
-        <div class="ds-title">Explicação</div>
-        <p class="ds-text">Cada grupo reflete sobre sua vivência na Solar e constrói uma obra que representa essa experiência, apresentando as escolhas feitas ao final.</p>
-      </div>
+      <a class="ds-link" onclick="scrollToSection('obra-resumo')">Resumo</a>
+      <a class="ds-link" onclick="scrollToSection('obra-tempo')">Tempo</a>
+      <a class="ds-link" onclick="scrollToSection('obra-participantes')">Número de participantes</a>
+      <a class="ds-link" onclick="scrollToSection('obra-sala')">Disposição da Sala</a>
+      <a class="ds-link" onclick="scrollToSection('obra-materiais')">Materiais necessários</a>
+      <a class="ds-link" onclick="scrollToSection('obra-explicacao')">Explicação (regras)</a>
+      <a class="ds-link" onclick="scrollToSection('obra-preparacao')">Preparação / montagem</a>
+      <a class="ds-link" onclick="scrollToSection('obra-aplicacao')">Aplicação</a>
+      <a class="ds-link" onclick="scrollToSection('obra-debriefing')">Fechamento</a>
     </aside>
     <div class="dyn-content">
 
@@ -242,12 +258,12 @@
       <div class="subtitle">Descrição para Consultores(as)</div>
     </div>
 
-    <div class="section">
+    <div class="section" id="obra-resumo">
       <h2>Resumo</h2>
       <p>Na Galeria de Artes, as pessoas participantes se dividem em grupos de 4 a 6 pessoas para construir, cada grupo, uma obra de arte que representa a Solar. As obras podem ser independentes entre si ou conectadas, formando ao final uma composição coletiva maior. Ao final, os grupos apresentam suas obras e refletem juntos sobre como as diferentes percepções da Solar contam parte da cultura.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="obra-tempo">
       <h2>Tempo Estimado</h2>
       <ul class="plain">
         <li>Preparação da dinâmica: 5 minutos</li>
@@ -257,7 +273,7 @@
       <p><strong>Tempo Total:</strong> 45 a 55 minutos</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="obra-participantes">
       <h2>Número de participantes</h2>
       <ul class="plain">
         <li>Mínimo de participantes: 4 participantes por equipe</li>
@@ -267,17 +283,17 @@
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="obra-sala">
       <h2>Disposição da sala</h2>
       <p>Mesas suficientes para acomodar os grupos de 4 a 6 pessoas, distribuídas pela sala, com espaço de circulação para o(a) consultor(a) passar entre os grupos durante a construção.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="obra-materiais">
       <h2>Materiais necessários por equipe</h2>
       <div id="obra-checklist"></div>
     </div>
 
-    <div class="section">
+    <div class="section" id="obra-explicacao">
       <h2>Explicação do funcionamento da dinâmica (regras)</h2>
       <ol class="plain">
         <li>Divida as pessoas participantes em grupos de 4 a 6 pessoas.</li>
@@ -288,7 +304,7 @@
       <div class="callout"><strong>Observação:</strong> o(a) consultor(a) deve interagir com as pessoas participantes durante a fase de apresentação das obras e solicitar que um(a) voluntário(a) conecte as obras de arte como parte de uma mesma exposição.</div>
     </div>
 
-    <div class="section">
+    <div class="section" id="obra-preparacao">
       <h2>Preparação / montagem</h2>
       <ol class="plain">
         <li>Organize as mesas e os materiais para cada grupo.</li>
@@ -297,7 +313,7 @@
       </ol>
     </div>
 
-    <div class="section">
+    <div class="section" id="obra-aplicacao">
       <h2>Aplicação</h2>
       <ol class="plain">
         <li>Explique a dinâmica e distribua os materiais para cada grupo.</li>
@@ -307,13 +323,17 @@
       </ol>
     </div>
 
-    <div class="section">
+    <div class="section" id="obra-debriefing">
       <h2>Debriefing</h2>
       <ul class="plain">
         <li>Todas as equipes apresentam.</li>
         <li>O(a) consultor(a) convida alguém para fazer a conexão entre as obras, como se fosse um guia da galeria de artes.</li>
         <li>Abre uma pergunta para o grupo todo: o que mais te chamou atenção nessa dinâmica?</li>
       </ul>
+    </div>
+
+    <div class="pdf-btn-wrap">
+      <button class="btn-pdf" onclick="downloadPDF('obra')">Baixar em PDF</button>
     </div>
 
     </div>
@@ -326,22 +346,15 @@
 
     <div class="dyn-layout">
     <aside class="dyn-summary">
-      <div class="ds-block">
-        <div class="ds-title">Resumo</div>
-        <p class="ds-text">Três grupos, com limitações diferentes (vendadas, imobilizadas, sem fala), precisam atravessar três ilhas usando tapetinhos como pontes.</p>
-      </div>
-      <div class="ds-block">
-        <div class="ds-title">Disposição da Sala</div>
-        <p class="ds-text">Três ilhas demarcadas no chão, com distância desafiadora entre elas, mais dois espaços externos para os grupos retirados.</p>
-      </div>
-      <div class="ds-block">
-        <div class="ds-title">Materiais necessários</div>
-        <p class="ds-text">Tapetes, fita adesiva para demarcar as ilhas, vendas para os olhos e fitas de tecido para imobilizar as mãos.</p>
-      </div>
-      <div class="ds-block">
-        <div class="ds-title">Explicação</div>
-        <p class="ds-text">Cada grupo tem uma limitação diferente e precisa colaborar para atravessar as três ilhas, respeitando as regras de interação entre eles.</p>
-      </div>
+      <a class="ds-link" onclick="scrollToSection('travessia-resumo')">Resumo</a>
+      <a class="ds-link" onclick="scrollToSection('travessia-tempo')">Tempo</a>
+      <a class="ds-link" onclick="scrollToSection('travessia-participantes')">Número de participantes</a>
+      <a class="ds-link" onclick="scrollToSection('travessia-sala')">Disposição da Sala</a>
+      <a class="ds-link" onclick="scrollToSection('travessia-materiais')">Materiais necessários</a>
+      <a class="ds-link" onclick="scrollToSection('travessia-explicacao')">Explicação (regras)</a>
+      <a class="ds-link" onclick="scrollToSection('travessia-preparacao')">Preparação / montagem</a>
+      <a class="ds-link" onclick="scrollToSection('travessia-aplicacao')">Aplicação</a>
+      <a class="ds-link" onclick="scrollToSection('travessia-debriefing')">Fechamento</a>
     </aside>
     <div class="dyn-content">
 
@@ -350,12 +363,12 @@
       <div class="subtitle">Descrição para Consultores(as)</div>
     </div>
 
-    <div class="section">
+    <div class="section" id="travessia-resumo">
       <h2>Resumo</h2>
       <p>Na dinâmica Travessia da Ilha, as pessoas participantes são divididas em três subgrupos: pessoas vendadas, pessoas imobilizadas e pessoas sem fala. O objetivo é que, utilizando tapetinhos como pontes, as equipes se locomovam entre três "ilhas" para alcançar o objetivo final. A dinâmica destaca a importância da comunicação não verbal, do trabalho em equipe, da adaptação a diferentes limitações e ao comportamento quando existe uma pressão, como o tempo.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="travessia-tempo">
       <h2>Tempo Estimado</h2>
       <ul class="plain">
         <li>Preparação da dinâmica: 15 minutos</li>
@@ -365,7 +378,7 @@
       <p><strong>Tempo Total:</strong> 50 minutos</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="travessia-participantes">
       <h2>Número de participantes</h2>
       <ul class="plain">
         <li>Mínimo de participantes: 9 (3 por grupo)</li>
@@ -373,7 +386,7 @@
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="travessia-sala">
       <h2>Disposição da sala</h2>
       <p><strong>Área principal:</strong> 3 espaços demarcados com fita no chão, formando as "ilhas", com uma distância desafiadora, porém possível, entre elas. A ilha 3 (das pessoas sem fala, ponto de chegada) precisa ter tamanho suficiente para comportar todas as pessoas participantes.</p>
       <p><strong>Área externa:</strong> 2 espaços separados fora da sala principal, reservados para os dois grupos retirados antes do início da atividade (vendadas e imobilizadas), que não precisam conhecer o objetivo da atividade nem como devem se mover entre as ilhas.</p>
@@ -387,12 +400,12 @@
       </table>
     </div>
 
-    <div class="section">
+    <div class="section" id="travessia-materiais">
       <h2>Materiais necessários por equipe</h2>
       <div id="travessia-checklist"></div>
     </div>
 
-    <div class="section">
+    <div class="section" id="travessia-explicacao">
       <h2>Explicação do funcionamento da dinâmica (regras)</h2>
       <ul class="plain">
         <li>A dinâmica é dividida em três grupos:
@@ -408,7 +421,7 @@
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="travessia-preparacao">
       <h2>Preparação / montagem</h2>
       <ul class="plain">
         <li>Organize a sala com três áreas demarcadas como "ilhas" e uma distância desafiadora entre elas.</li>
@@ -435,7 +448,7 @@
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="travessia-aplicacao">
       <h2>Aplicação</h2>
       <ul class="plain">
         <li>Explique as regras e divida as pessoas participantes nos três grupos.</li>
@@ -444,7 +457,7 @@
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="travessia-debriefing">
       <h2>Debriefing</h2>
       <p>A pergunta orientadora para a discussão entre eles é: "Como o que acabamos de viver aqui se conecta com o que acontece no seu dia a dia e que impacto isso gera?"</p>
       <p style="color:var(--text-light); font-size:13px;">Possíveis conexões com os 4 dilemas:</p>
@@ -454,6 +467,10 @@
         <li><strong>Trabalho em silos e autonomia:</strong> como acontece a comunicação entre áreas, já que nem todos possuem o mesmo entendimento e visão do todo?</li>
         <li><strong>Controle e microgerenciamento:</strong> como foi ter que dar instruções e confiar que o outro grupo faria corretamente?</li>
       </ul>
+    </div>
+
+    <div class="pdf-btn-wrap">
+      <button class="btn-pdf" onclick="downloadPDF('travessia')">Baixar em PDF</button>
     </div>
 
     </div>
@@ -466,22 +483,15 @@
 
     <div class="dyn-layout">
     <aside class="dyn-summary">
-      <div class="ds-block">
-        <div class="ds-title">Resumo</div>
-        <p class="ds-text">Atividade de integração em que cada pessoa preenche uma cartela com nomes de colegas que se encaixam em características descritas.</p>
-      </div>
-      <div class="ds-block">
-        <div class="ds-title">Disposição da Sala</div>
-        <p class="ds-text">Espaço aberto, sem mesas fixas, que permita que as pessoas circulem livremente pela sala.</p>
-      </div>
-      <div class="ds-block">
-        <div class="ds-title">Materiais necessários</div>
-        <p class="ds-text">Formulário do bingo e caneta para cada participante, e premiação opcional para quem completar a cartela primeiro.</p>
-      </div>
-      <div class="ds-block">
-        <div class="ds-title">Explicação</div>
-        <p class="ds-text">As pessoas devem encontrar quem se encaixa em cada característica da cartela, sem repetir nomes, até preenchê-la por completo e gritar "Bingo!".</p>
-      </div>
+      <a class="ds-link" onclick="scrollToSection('bingo-resumo')">Resumo</a>
+      <a class="ds-link" onclick="scrollToSection('bingo-tempo')">Tempo</a>
+      <a class="ds-link" onclick="scrollToSection('bingo-participantes')">Número de participantes</a>
+      <a class="ds-link" onclick="scrollToSection('bingo-sala')">Disposição da Sala</a>
+      <a class="ds-link" onclick="scrollToSection('bingo-materiais')">Materiais necessários</a>
+      <a class="ds-link" onclick="scrollToSection('bingo-explicacao')">Explicação (regras)</a>
+      <a class="ds-link" onclick="scrollToSection('bingo-preparacao')">Preparação / montagem</a>
+      <a class="ds-link" onclick="scrollToSection('bingo-aplicacao')">Aplicação</a>
+      <a class="ds-link" onclick="scrollToSection('bingo-fechamento')">Fechamento</a>
     </aside>
     <div class="dyn-content">
 
@@ -490,12 +500,12 @@
       <div class="subtitle">Descrição para Consultores(as)</div>
     </div>
 
-    <div class="section">
+    <div class="section" id="bingo-resumo">
       <h2>Resumo</h2>
       <p>A dinâmica "Bingo Humano" promove a integração do grupo e pode ser utilizada como atividade inicial de conexão. O objetivo é preencher uma cartela com características com os nomes das pessoas presentes na sala, incentivando o(a)s participantes a interagirem entre si para completar a tarefa.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="bingo-tempo">
       <h2>Tempo Estimado</h2>
       <ul class="plain">
         <li>Preparação da dinâmica: 5 minutos</li>
@@ -505,7 +515,7 @@
       <p><strong>Tempo Total:</strong> 25 minutos</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="bingo-participantes">
       <h2>Número de participantes</h2>
       <ul class="plain">
         <li>Mínimo de participantes: 12 participantes (cartela de 8 espaços)</li>
@@ -514,17 +524,17 @@
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="bingo-sala">
       <h2>Disposição da sala</h2>
       <p>Espaço aberto, sem mesas fixas, que permita que as pessoas circulem livremente pela sala para conversar com o maior número possível de colegas.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="bingo-materiais">
       <h2>Materiais necessários por equipe</h2>
       <div id="bingo-checklist"></div>
     </div>
 
-    <div class="section">
+    <div class="section" id="bingo-explicacao">
       <h2>Explicação do funcionamento da dinâmica (regras)</h2>
       <ul class="plain">
         <li><strong>Questionamento inicial:</strong> pergunte ao grupo se já jogaram bingo e, em seguida, explique que jogarão uma versão diferente chamada Bingo Humano. Caso alguém não conheça o Bingo tradicional, explicar como funciona.</li>
@@ -535,7 +545,7 @@
       <div class="callout"><strong>Observação:</strong> mesmo se alguém gritar "Bingo!", as outras pessoas participantes devem continuar até completar o formulário corretamente, pois quem gritar primeiro pode ter preenchimentos errados ou repetidos.</div>
     </div>
 
-    <div class="section">
+    <div class="section" id="bingo-preparacao">
       <h2>Preparação / montagem</h2>
       <ul class="plain">
         <li>Prepare o ambiente e distribua o material necessário (cartelas de bingo e canetas) às pessoas participantes.</li>
@@ -545,7 +555,7 @@
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="bingo-aplicacao">
       <h2>Aplicação</h2>
       <ul class="plain">
         <li>Após a explicação, inicie a dinâmica distribuindo os formulários e as canetas.</li>
@@ -554,12 +564,16 @@
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="bingo-fechamento">
       <h2>Fechamento</h2>
       <ul class="plain">
         <li>Após conferência da cartela e validado o Bingo, pegue alguns exemplos e pergunte quem são as pessoas cujos nomes estão na cartela vencedora. Exemplo: "A Camila sabe fazer pratos diferentes. Que pratos você faz, Camila? Alguém achou outro 'chef de cozinha' aqui?"</li>
         <li>Pergunte às pessoas como estão se sentindo após terem feito essa atividade. As respostas permitem verificar nível de energia e entrosamento.</li>
       </ul>
+    </div>
+
+    <div class="pdf-btn-wrap">
+      <button class="btn-pdf" onclick="downloadPDF('bingo')">Baixar em PDF</button>
     </div>
 
     </div>
@@ -573,6 +587,17 @@ function showScreen(id) {
   document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
   document.getElementById('screen-' + id).classList.add('active');
   window.scrollTo({top:0, behavior:'instant'});
+}
+
+function scrollToSection(sectionId) {
+  var el = document.getElementById(sectionId);
+  if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+}
+
+function downloadPDF(screenId) {
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('screen-' + screenId).classList.add('active');
+  window.print();
 }
 
 var obraMateriais = [
